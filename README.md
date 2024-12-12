@@ -1,3 +1,5 @@
+# Fork自VIKINGYFY大佬的项目，加入自己常用插件，感谢大佬们的付出
+
 # OpenWRT-CI
 云编译OpenWRT固件
 
@@ -8,8 +10,6 @@ https://github.com/immortalwrt/immortalwrt.git
 https://github.com/VIKINGYFY/immortalwrt.git
 
 # 固件简要说明：
-
-固件每天早上4点自动编译。
 
 固件信息里的时间为编译开始的时间，方便核对上游源码提交时间。
 
