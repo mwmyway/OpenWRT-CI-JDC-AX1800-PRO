@@ -7,7 +7,7 @@ on:
   #workflow_run:
     #workflows: ["Auto-Clean"]
     #types:
-      - completed
+      #- completed
   #手动编译
   workflow_dispatch:
     inputs:
