@@ -32,7 +32,8 @@ jobs:
       fail-fast: false
       #max-parallel: 3
       matrix:
-        TARGET: [MEDIATEK, X86]
+        #TARGET: [MEDIATEK, X86]
+        TARGET: [MEDIATEK]
         SOURCE: [VIKINGYFY/immortalwrt]
         BRANCH: [owrt]
 
