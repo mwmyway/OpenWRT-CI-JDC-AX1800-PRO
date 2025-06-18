@@ -38,3 +38,6 @@ CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_qihoo_360t7=y
 #CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_xiaomi_redmi-router-ax6000-stock=y
 #CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_xiaomi_redmi-router-ax6000-ubootmod=y
 #CONFIG_TARGET_DEVICE_mediatek_filogic_DEVICE_zyxel_ex5700-telenor=y
+
+#专用组件
+CONFIG_PACKAGE_wpad-openssl=y
