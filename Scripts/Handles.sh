@@ -75,3 +75,14 @@ if [ -f "$RUST_FILE" ]; then
 
 	cd $PKG_PATH && echo "rust has been fixed!"
 fi
+
+#修复DiskMan编译失败
+DM_FILE="./luci-app-diskman/applications/luci-app-diskman/Makefile"
+if [ -f "$DM_FILE" ]; then
+	echo " "
+
+	sed -i 's/fs-ntfs/fs-ntfs3/g' $DM_FILE
+	sed -i '/ntfs-3g-utils /d' $DM_FILE
+
+	cd $PKG_PATH && echo "diskman has been fixed!"
+fi
