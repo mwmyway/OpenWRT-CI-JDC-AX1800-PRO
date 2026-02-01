@@ -30,10 +30,20 @@ if [ -d *"luci-theme-argon"* ]; then
 
 	cd ./luci-theme-argon/
 
-	sed -i "/font-weight:/ { /important/! { /\/\*/! s/:.*/: var(--font-weight);/ } }" $(find ./luci-theme-argon -type f -iname "*.css")
 	sed -i "s/primary '.*'/primary '#31a1a1'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" ./luci-app-argon-config/root/etc/config/argon
 
 	cd $PKG_PATH && echo "theme-argon has been fixed!"
+fi
+
+#修改aurora菜单式样
+if [ -d *"luci-app-aurora-config"* ]; then
+	echo " "
+
+	cd ./luci-app-aurora-config/
+
+	sed -i "s/nav_submenu_type '.*'/nav_submenu_type 'boxed-dropdown'/g" $(find ./root/ -type f -name "*aurora")
+
+	cd $PKG_PATH && echo "theme-aurora has been fixed!"
 fi
 
 #修改qca-nss-drv启动顺序
@@ -81,8 +91,19 @@ DM_FILE="./luci-app-diskman/applications/luci-app-diskman/Makefile"
 if [ -f "$DM_FILE" ]; then
 	echo " "
 
-	sed -i 's/fs-ntfs/fs-ntfs3/g' $DM_FILE
 	sed -i '/ntfs-3g-utils /d' $DM_FILE
 
 	cd $PKG_PATH && echo "diskman has been fixed!"
+fi
+
+#修复luci-app-netspeedtest相关问题
+if [ -d *"luci-app-netspeedtest"* ]; then
+	echo " "
+
+	cd ./luci-app-netspeedtest/
+
+	sed -i '$a\exit 0' ./netspeedtest/files/99_netspeedtest.defaults
+	sed -i 's/ca-certificates/ca-bundle/g' ./speedtest-cli/Makefile
+
+	cd $PKG_PATH && echo "netspeedtest has been fixed!"
 fi
