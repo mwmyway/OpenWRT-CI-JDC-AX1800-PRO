@@ -1,4 +1,6 @@
 #!/bin/bash
+# SPDX-License-Identifier: MIT
+# Copyright (C) 2026 VIKINGYFY
 
 PKG_PATH="$GITHUB_WORKSPACE/wrt/package/"
 
@@ -26,9 +28,7 @@ fi
 
 #修改argon主题字体和颜色
 if [ -d *"luci-theme-argon"* ]; then
-	echo " "
-
-	cd ./luci-theme-argon/
+	echo " " && cd ./luci-theme-argon/
 
 	sed -i "s/primary '.*'/primary '#31a1a1'/; s/'0.2'/'0.5'/; s/'none'/'bing'/; s/'600'/'normal'/" ./luci-app-argon-config/root/etc/config/argon
 
@@ -37,33 +37,20 @@ fi
 
 #修改aurora菜单式样
 if [ -d *"luci-app-aurora-config"* ]; then
-	echo " "
+	echo " " && cd ./luci-app-aurora-config/
 
-	cd ./luci-app-aurora-config/
-
-	sed -i "s/nav_submenu_type '.*'/nav_submenu_type 'boxed-dropdown'/g" $(find ./root/ -type f -name "*aurora")
+	sed -i "s/nav_type '.*'/nav_type 'dropdown'/g" $(find ./root/usr/share/aurora/ -type f -name "*.template")
 
 	cd $PKG_PATH && echo "theme-aurora has been fixed!"
 fi
 
-#修改qca-nss-drv启动顺序
-NSS_DRV="../feeds/nss_packages/qca-nss-drv/files/qca-nss-drv.init"
-if [ -f "$NSS_DRV" ]; then
-	echo " "
+#修改mini-diskmanager菜单位置
+if [ -d *"luci-app-mini-diskmanager"* ]; then
+	echo " " && cd ./luci-app-mini-diskmanager/
 
-	sed -i 's/START=.*/START=85/g' $NSS_DRV
+	sed -i "s/services/system/g" ./luci-app-mini-diskmanager/root/usr/share/luci/menu.d/luci-app-mini-diskmanager.json
 
-	cd $PKG_PATH && echo "qca-nss-drv has been fixed!"
-fi
-
-#修改qca-nss-pbuf启动顺序
-NSS_PBUF="./kernel/mac80211/files/qca-nss-pbuf.init"
-if [ -f "$NSS_PBUF" ]; then
-	echo " "
-
-	sed -i 's/START=.*/START=86/g' $NSS_PBUF
-
-	cd $PKG_PATH && echo "qca-nss-pbuf has been fixed!"
+	cd $PKG_PATH && echo "mini-diskmanager has been fixed!"
 fi
 
 #修复TailScale配置文件冲突
@@ -84,26 +71,4 @@ if [ -f "$RUST_FILE" ]; then
 	sed -i 's/ci-llvm=true/ci-llvm=false/g' $RUST_FILE
 
 	cd $PKG_PATH && echo "rust has been fixed!"
-fi
-
-#修复DiskMan编译失败
-DM_FILE="./luci-app-diskman/applications/luci-app-diskman/Makefile"
-if [ -f "$DM_FILE" ]; then
-	echo " "
-
-	sed -i '/ntfs-3g-utils /d' $DM_FILE
-
-	cd $PKG_PATH && echo "diskman has been fixed!"
-fi
-
-#修复luci-app-netspeedtest相关问题
-if [ -d *"luci-app-netspeedtest"* ]; then
-	echo " "
-
-	cd ./luci-app-netspeedtest/
-
-	sed -i '$a\exit 0' ./netspeedtest/files/99_netspeedtest.defaults
-	sed -i 's/ca-certificates/ca-bundle/g' ./speedtest-cli/Makefile
-
-	cd $PKG_PATH && echo "netspeedtest has been fixed!"
 fi
