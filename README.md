@@ -1,6 +1,6 @@
 # Fork自VIKINGYFY大佬的项目，加入自己常用插件，感谢大佬们的付出
 
-OpenWRT-CI
+# OpenWRT-CI
 官方版：
 
 https://github.com/immortalwrt/immortalwrt.git
@@ -9,7 +9,7 @@ https://github.com/immortalwrt/immortalwrt.git
 
 https://github.com/VIKINGYFY/immortalwrt.git
 
-U-BOOT
+# U-BOOT
 高通版-沉心：
 
 https://github.com/chenxin527/uboot-ipq60xx-emmc-build.git
