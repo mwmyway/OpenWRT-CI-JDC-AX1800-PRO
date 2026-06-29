@@ -1,13 +1,34 @@
 # Fork自VIKINGYFY大佬的项目，加入自己常用插件，感谢大佬们的付出
 
-# OpenWRT-CI
-云编译OpenWRT固件
-
+OpenWRT-CI
 官方版：
+
 https://github.com/immortalwrt/immortalwrt.git
 
-高通版：
+自用版：
+
 https://github.com/VIKINGYFY/immortalwrt.git
+
+U-BOOT
+高通版-沉心：
+
+https://github.com/chenxin527/uboot-ipq60xx-emmc-build.git
+
+https://github.com/chenxin527/uboot-ipq60xx-nand-build.git
+
+https://github.com/chenxin527/uboot-ipq60xx-nor-build.git
+
+高通版-小猪：
+
+https://github.com/1980490718/u-boot-2016.git
+
+联发科-全新版：
+
+https://github.com/VIKINGYFY/UBOOT-CI/releases
+
+联发科-官方版：
+
+https://drive.wrt.moe/uboot/mediatek
 
 # 固件简要说明：
 
