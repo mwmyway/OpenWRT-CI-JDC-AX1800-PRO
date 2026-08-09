@@ -83,6 +83,7 @@ UPDATE_PACKAGE "vnt" "lmq8267/luci-app-vnt" "main"
 
 UPDATE_PACKAGE "lucky" "sirpdboy/luci-app-lucky" "main"
 UPDATE_PACKAGE "vohive" "voorz/luci-app-vohive" "main"
+UPDATE_PACKAGE "vohive-next" "voorz/vohive-next" "main"
 
 
 #更新软件包版本
