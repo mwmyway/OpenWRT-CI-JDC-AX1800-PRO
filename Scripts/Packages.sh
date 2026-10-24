@@ -94,6 +94,8 @@ UPDATE_PACKAGE "qmodem-generic" "LianXia233/luci-app-qmodem-generic" "main"
 
 UPDATE_PACKAGE "lucky" "sirpdboy/luci-app-lucky" "main"
 UPDATE_PACKAGE "vohive" "voorz/luci-app-vohive" "main"
+UPDATE_PACKAGE "harbor-file-pro" "whzhni1/luci-app-harbor-file-pro" "main"
+
 
 #更新软件包版本
 UPDATE_VERSION() {
